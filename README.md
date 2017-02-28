@@ -38,3 +38,20 @@ $ ./scripts/build-devtools-xpi.sh
 * Ensure setting `xpinstall.signatures.required` to false in `about:config`
 * Drag'n drop `devtools.xpi` file in Firefox -or- execute path/to/firefox-bin ./devtools.xpi
 ```
+
+Run tests
+=========
+From `ff-dt` folder:
+```
+# Setup python environement for mochitest test runner
+$ source config.sh
+
+# Run all tests
+$ ./test.sh
+
+# Run one folder
+$ ./test.sh client/inspector/
+
+# Run one test
+$ ./test.sh client/inspector/test/browser_inspector_highlighter-01.js
+```
