@@ -6,6 +6,7 @@ fi
 source venv/bin/activate
 pip install -r mozbase_requirements.txt
 # not document on mdn but required to execute runtests.py
-pip install marionette_harness
+# '| cat' to disable progressbar...
+pip install marionette_harness | cat
 
 popd

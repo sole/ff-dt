@@ -19,13 +19,7 @@ FILENAME=target.tar.bz2
 URL=https://queue.taskcluster.net/v1/task/$TASK_ID/artifacts/public/build/$FILENAME
 PACKAGE=$(readlink -f $SCRIPT_DIR/$FILENAME)
 
-# If we are running on CI (travis, circle, taskcluster, ...)
-# make wget silent and do not show progress
-OPTIONS=
-if [ ! -z $CI ]; then
-  OPTIONS=-nv
-fi
-wget $URL -O $PACKAGE $OPTIONS
+curl -vL -o $PACKAGE $URL
 
 tar jxf $PACKAGE -C $SCRIPT_DIR/artifacts/
 #rm $PACKAGE
